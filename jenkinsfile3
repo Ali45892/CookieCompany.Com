@@ -1,0 +1,16 @@
+node {
+    for (int i=0; i<0; i++){
+        stage "Stage#" +i
+        print "Hello World"
+        if (i==0)
+        {
+            git "https://github.com/Ali45892/CookieCompany.Com.git"
+            echo "Running on satge# 0"
+        }
+        else {
+            build "Declarative pipeline"
+            echo "Running on stage #1"
+        }
+
+    }
+}
