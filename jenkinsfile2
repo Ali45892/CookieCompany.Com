@@ -3,29 +3,32 @@ pipeline {
     stages {
         stage ('One') {
             steps {
-                echo 'Hi, this is Ali';
-            }
-            }
-            stage ('Two') {
-            when {
-                input 'Do you want to proceed?';
+                echo 'Hi, this is Ali'
             }
         }
-        stage ("Three") {
+        stage ('Two') {
+            when {
+                input 'Do you want to proceed?'
+            }
+            steps {
+                echo 'Proceeding...'
+            }
+        }
+        stage ('Three') {
             when {
                 not {
-                  branch "master"
+                    branch 'master'
+                }
             }
-        }
             steps {
-                echo "Hello";
+                echo 'Hello'
             }
         }
-        stage('Four') {
+        stage ('Four') {
             parallel {
                 stage('Unit Test') {
-                    steps{
-                        echo "Running the unit test.."
+                    steps {
+                        echo 'Running the unit test..'
                     } 
                 }
                 stage('Integration Test') {
@@ -36,12 +39,12 @@ pipeline {
                         }
                     }
                     steps {
-                        echo "Running the integration test.."
+                        echo 'Running the integration test..'
                     }
                 }
             }
         }
-}
     }
+}
 
    
