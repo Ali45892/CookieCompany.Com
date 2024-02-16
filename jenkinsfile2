@@ -9,12 +9,8 @@ pipeline {
         stage ('Two') {
             steps {
                 script {
-                    // Use input step inside a script block
                     input message: 'Do you want to proceed?', ok: 'Proceed'
                 }
-            }
-            // Steps should be inside the stage block
-            steps {
                 echo 'Proceeding...'
             }
         }
